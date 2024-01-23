@@ -19,8 +19,8 @@ func main() {
     }
 
     // Load the compiled eBPF ELF and load it into the kernel.
-    var objs layer4Objects 
-    if err := loadLayer4Objects(&objs, nil); err != nil {
+    var objs packetProtocolObjects 
+    if err := loadPacketProtocolObjects(&objs, nil); err != nil {
         log.Fatal("Loading eBPF objects:", err)
     }
     defer objs.Close() 
@@ -41,7 +41,7 @@ func main() {
     }
     defer link.Close() 
 
-    log.Printf("Analysing incoming packets on %s..", ifname)
+    log.Printf("Analysing packets on %s..", ifname)
 
     tick := time.Tick(time.Second)
     stop := make(chan os.Signal, 5)
