@@ -43,7 +43,7 @@ int packet_details(struct xdp_md *ctx) {
         return XDP_PASS;
 
     // Reserve space in the ring buffer
-    packet = bpf_ringbuf_reserve(&rb,sizeof(packet), 0);
+    packet = bpf_ringbuf_reserve(&rb,sizeof(*packet), 0);
   
     if (!packet) {
         // Ideally, we'd handle not being able to
