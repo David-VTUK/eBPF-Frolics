@@ -1,0 +1,21 @@
+{
+	"name": "Go",
+	"image": "mcr.microsoft.com/devcontainers/go:1.22",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
+	},
+
+	// Extra args to enable compatibility between Flatpak vscode and podman
+	"runArgs": ["--userns=keep-id"],
+	"containerUser": "vscode",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,Z",
+    "workspaceFolder": "/workspace"
+}
