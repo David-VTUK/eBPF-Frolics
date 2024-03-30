@@ -25,7 +25,7 @@ func main() {
 	}
 	defer ring.Close()
 
-	ifname := "wlp3s0"
+	ifname := "enp1s0"
 	iface, err := net.InterfaceByName(ifname)
 	if err != nil {
 		log.Fatalf("Getting interface %s: %s", ifname, err)
