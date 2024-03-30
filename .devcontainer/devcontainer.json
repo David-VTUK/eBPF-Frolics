@@ -1,6 +1,6 @@
 {
-	"name": "Go",
-	"image": "mcr.microsoft.com/devcontainers/go:1.22",
+	"name": "Go-ebpf-env",
+	"build": {"dockerfile": "Dockerfile"},
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -8,13 +8,17 @@
 		"vscode": {
 			"settings": {},
 			"extensions": [
-				"streetsidesoftware.code-spell-checker"
+				"streetsidesoftware.code-spell-checker",
+				"ms-vscode.cpptools",
+				"nicknickolaev.ebpf-assembly",
+				"golang.Go"
 			]
 		}
 	},
 
 	// Extra args to enable compatibility between Flatpak vscode and podman
-	"runArgs": ["--userns=keep-id"],
+	"runArgs": ["--userns=keep-id","--privileged","--network=host"],
+	"privileged": true,
 	"containerUser": "vscode",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,Z",
     "workspaceFolder": "/workspace"
